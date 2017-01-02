@@ -5,7 +5,7 @@
 ## Login   <jouvel_a@epitech.net>
 ## 
 ## Started on  Mon Jan  2 19:04:16 2017 Anthony jouvel
-## Last update Mon Jan  2 20:32:57 2017 Anthony jouvel
+## Last update Mon Jan  2 20:40:23 2017 Anthony jouvel
 ##
 
 if [ "$#" -ne 1 ];then
@@ -26,3 +26,4 @@ let value=2#$binary
 echo -n "bin2dec($binary)="
 echo $value
 done
+exit 0
