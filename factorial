@@ -1,11 +1,23 @@
 #!/bin/bash
 
-number=$1
+counter=$1
 factorial=1
-while [ $number -gt 0 ]
-do
-    factorial=$(( $factorial * $number ))
-    counter=$(( $number - 1 ))
-done
-echo $factorial
 
+if [[ "$#" -ne 1 ]];then
+    echo "USAGE: ./factorial number" 1>&2
+    echo "Compute factorial of a number" 1>&2
+    exit 1
+fi
+
+if [[ $counter =~ ^[0-9]+$ ]];then
+    while [ $counter -gt 0 ]
+    do
+	factorial=$(( $factorial * $counter ))
+	counter=$(( $counter - 1 ))
+    done
+    echo $factorial
+    exit 0
+else
+    echo "Error" 1>&2
+    exit 1
+fi
