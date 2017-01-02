@@ -1,0 +1,18 @@
+#!/bin/sh
+## upcase_lowcase for shell in /home/jouvel_a/rendu/SHL_2016_shell
+## 
+## Made by Anthony jouvel
+## Login   <jouvel_a@epitech.net>
+## 
+## Started on  Mon Jan  2 18:01:00 2017 Anthony jouvel
+## Last update Mon Jan  2 19:59:44 2017 Anthony jouvel
+##
+
+if [ "$#" -eq 0 ];then
+    echo "USAGE: ./upcase_lowcase -l -u" 1>&2
+    echo "-l : lowcase" 1>&2
+    echo "-u : upcase" 1>&2
+    exit 1
+fi
+
+cat $ | tr [a-z] [A-Z] 

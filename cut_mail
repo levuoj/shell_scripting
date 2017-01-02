@@ -1,0 +1,62 @@
+#!/bin/sh
+## cut_mail for shell in /home/jouvel_a/rendu/SHL_2016_shell
+## 
+## Made by Anthony jouvel
+## Login   <jouvel_a@epitech.net>
+## 
+## Started on  Mon Jan  2 20:04:31 2017 Anthony jouvel
+## Last update Mon Jan  2 20:04:31 2017 Anthony jouvel
+##
+
+if [ "$#" -ne 2 ];then
+    echo "USAGE: ./cut_mail mbox destdir" 1>&2
+    exit 1
+fi
+
+a=$(grep -n "^From" $1 | cut -f1 -d:)
+
+array=(${a// / })
+i=0
+for nb in "${array[@]}"
+do
+    val=${array[$i]}
+    c=$(($val-1))
+    if [ $c = '0' ]
+    then
+        newArray[y]=$val
+	y=$(($y+1))
+    else
+          b=$(sed $c'!d' $1)
+    if echo "$b" | grep -q "^$"
+    then
+	newArray[y]=$val
+	y=$(($y+1))
+	fi
+    fi
+    i=$(($i+1))
+done
+
+echo "$y mail found"
+
+if [ -d "$2" ]
+then
+    echo "Error" 1>&2
+    exit 1
+else
+    $(mkdir $2)
+fi
+
+idx=0
+for nbr in "${newArray[@]}"
+do
+    q=$(($q+1))
+    now=${newArray[$idx]}
+    next=${newArray[$q]}
+    next=$(($next-2))
+    if [ $q = $y ]
+    then
+	next=$(grep -n $ $1 | tail -1 | cut -f1 -d:)
+    fi
+    test=$(sed $now','$next'w '$2'/'$q'.mail' $1)
+    idx=$(($idx+1))
+done

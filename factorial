@@ -1,15 +1,23 @@
-#!/bin/bash
+#!/bin/sh
+## factorial for shell in /home/jouvel_a/rendu/SHL_2016_shell
+## 
+## Made by Anthony jouvel
+## Login   <jouvel_a@epitech.net>
+## 
+## Started on  Mon Jan  2 19:04:25 2017 Anthony jouvel
+## Last update Mon Jan  2 19:04:26 2017 Anthony jouvel
+##
 
 counter=$1
 factorial=1
 
-if [[ "$#" -ne 1 ]];then
-    echo "USAGE: ./factorial number" 1>&2
-    echo "Compute factorial of a number" 1>&2
-    exit 1
+if [ "$#" -ne 1 ];then
+       echo "USAGE: ./factorial number" 1>&2
+       echo "Compute factorial of a number" 1>&2
+       exit 1
 fi
-
-if [[ $counter =~ ^[0-9]+$ ]];then
+    
+if echo "$counter" | grep -Eq '^[0-9]+$';then
     while [ $counter -gt 0 ]
     do
 	factorial=$(( $factorial * $counter ))

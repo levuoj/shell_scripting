@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 if [[ "$#" -ne 3 ]]; then
     echo "USAGE: ./replace original_stringfile replace_stringfile file" 1>&2
