@@ -5,11 +5,11 @@
 ## Login   <jouvel_a@epitech.net>
 ## 
 ## Started on  Mon Jan  2 19:04:16 2017 Anthony jouvel
-## Last update Mon Jan  2 19:04:17 2017 Anthony jouvel
+## Last update Mon Jan  2 20:32:57 2017 Anthony jouvel
 ##
 
 if [ "$#" -ne 1 ];then
-    echo "USAGE: ./bin2dec BinNumber" 1>&2
+    echo "USAGE: $0 BinNumber" 1>&2
     echo "Convert binary number to decimal number" 1>&2
     exit 1
 fi

@@ -4,12 +4,13 @@
 ## Made by Anthony jouvel
 ## Login   <jouvel_a@epitech.net>
 ## 
-## Started on  Mon Jan  2 20:04:31 2017 Anthony jouvel
-## Last update Mon Jan  2 20:04:31 2017 Anthony jouvel
+## Started on  Mon Jan  2 20:32:22 2017 Anthony jouvel
+## Last update Mon Jan  2 20:32:36 2017 Anthony jouvel
 ##
 
+
 if [ "$#" -ne 2 ];then
-    echo "USAGE: ./cut_mail mbox destdir" 1>&2
+    echo "USAGE: $0  mbox destdir" 1>&2
     exit 1
 fi
 
