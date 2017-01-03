@@ -1,8 +1,41 @@
 #!/bin/sh
+## replace.sh for replace in /home/vigier_t/shell
+## 
+## Made by thomas vigier
+## Login   <vigier_t@epitech.net>
+## 
+## Started on  Mon Jan  2 23:23:34 2017 thomas vigier
+## Last update Tue Jan  3 12:14:35 2017 thomas vigier
+##
 
-if [[ "$#" -ne 3 ]]; then
+if [ "$#" -ne 3 ];then
     echo "USAGE: $0 original_stringfile replace_stringfile file" 1>&2
     echo "Replace in file each string of original_stringfile by replace_stringfile" 1>&2
     exit 1
 fi
 
+cat1=$(cat $1)
+cat2=$(cat $2)
+file=$(cat $3)
+oldIFS="$IFS"
+IFS='
+'
+file1=($cat1)
+file2=($cat2)
+
+IFS="$oldIFS"
+
+i=0
+
+while [ $i -lt ${#file1[@]} ]
+do
+    string1=${file1[$i]}
+    string2=${file2[$i]}
+    b=${file//$string1/$string2}
+    i=$(($i+1))
+    file=$b
+done
+
+echo "$b"
+
+exit 0
