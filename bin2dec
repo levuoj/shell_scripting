@@ -5,7 +5,7 @@
 ## Login   <jouvel_a@epitech.net>
 ## 
 ## Started on  Mon Jan  2 19:04:16 2017 Anthony jouvel
-## Last update Mon Jan  2 20:40:23 2017 Anthony jouvel
+## Last update Tue Jan  3 12:42:59 2017 thomas vigier
 ##
 
 if [ "$#" -ne 1 ];then
@@ -14,16 +14,19 @@ if [ "$#" -ne 1 ];then
     exit 1
 fi
 
-for binary in $*
-do
-    if [ "${binary/[^01]}" != "$binary" ]
+if echo "$1" | grep -Eq '^-[0,1]+$|^[0,1]+$' 
+     then
+if [ $1 -lt 0 ]
 then
-    echo "Error"
-    exit 1
-continue
-fi
-let value=2#$binary
-echo -n "bin2dec($binary)="
-echo $value
-done
+    a=$(($1*-1))
+    test=$((2#$a))
+    echo "bin2dec($1)=-$test"
+else
+    test=$((2#$1))
+    echo "bin2dec($1)=$test"
+    fi
+     else
+	 echo "Error" 1>&2
+	 exit 1
+	 fi
 exit 0
