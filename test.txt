@@ -1,3 +1,0 @@
-Bonjour
-toto 42
-PLOP
