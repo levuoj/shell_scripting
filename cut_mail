@@ -5,7 +5,7 @@
 ## Login   <jouvel_a@epitech.net>
 ## 
 ## Started on  Mon Jan  2 20:32:22 2017 Anthony jouvel
-## Last update Tue Jan  3 10:45:59 2017 thomas vigier
+## Last update Tue Jan  3 18:25:50 2017 thomas vigier
 ##
 
 
@@ -48,6 +48,7 @@ else
 fi
 
 idx=0
+q=0
 for nbr in "${newArray[@]}"
 do
     q=$(($q+1))
