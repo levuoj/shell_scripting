@@ -5,7 +5,7 @@
 ## Login   <jouvel_a@epitech.net>
 ## 
 ## Started on  Tue Jan  3 15:24:55 2017 Anthony jouvel
-## Last update Tue Jan  3 17:58:48 2017 thomas vigier
+## Last update Tue Jan  3 18:09:27 2017 thomas vigier
 ##
 
 if [ "$#" -eq 0 ];then
@@ -34,9 +34,16 @@ elif [ $1 == "-pid" ];then
     done
     exit 0
 elif [ $1 == "-prog" ];then
-    echo "prog"
+    for param in "$@"
+    do
+	if [ $param != $1 ]; then
+	    kill -9 `ps -eo pid,command | grep $param | cut -c1-5`
+	fi
+    done
+    exit 0
 elif [ $1 == "-all" ];then
     kill -9 `ps -eo pid | grep PID -v | cut -c1-5`
+    exit 0
 else
     echo "Error" 1>&2
     exit 1
