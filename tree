@@ -5,7 +5,7 @@
 ## Login   <jouvel_a@epitech.net>
 ## 
 ## Started on  Tue Jan  3 18:57:58 2017 Anthony jouvel
-## Last update Tue Jan  3 19:01:34 2017 Anthony jouvel
+## Last update Tue Jan  3 23:17:30 2017 Anthony jouvel
 ##
 
 if [ "$#" -ne 1 ]
@@ -13,5 +13,5 @@ then   echo "USAGE: $0 DirName" 1>&2
        exit 1
 fi
 
-echo "ERROR $1 is not a directory" 1>&2
+echo "ERROR: $1 is not a directory" 1>&2
 exit 1
