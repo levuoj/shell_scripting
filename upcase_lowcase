@@ -4,8 +4,8 @@
 ## Made by Anthony jouvel
 ## Login   <jouvel_a@epitech.net>
 ## 
-## Started on  Mon Jan  2 18:01:00 2017 Anthony jouvel
-## Last update Mon Jan  2 23:42:00 2017 Anthony jouvel
+## Started on  Tue Jan  3 11:50:03 2017 Anthony jouvel
+## Last update Tue Jan  3 11:50:05 2017 Anthony jouvel
 ##
 
 if [ "$#" -eq 0 ];then
@@ -15,12 +15,17 @@ if [ "$#" -eq 0 ];then
     exit 1
 fi
 
-counter=$#
-
-while [ counter -gt 0 ]
+for param in "$@"
 do
-    if [ $($counter) 
+    if [ $param != "-u" -a $param != "-l" ];then
+	echo "ERROR: $param unknown option" 1>&2
+	exit 1
+    fi
+done
 
-echo "`cat`"  | tr [a-z] [A-Z] 
-
-echo "`cat`"  | tr [A-Z] [a-z]
+if [ $param == "-u" ];then
+    echo "`cat`"  | tr [a-z] [A-Z] 
+else
+    echo "`cat`"  | tr [A-Z] [a-z]
+fi
+exit 0
