@@ -5,7 +5,7 @@
 ## Login   <jouvel_a@epitech.net>
 ## 
 ## Started on  Tue Jan  3 15:24:55 2017 Anthony jouvel
-## Last update Tue Jan  3 17:39:50 2017 Anthony jouvel
+## Last update Tue Jan  3 17:43:22 2017 Anthony jouvel
 ##
 
 if [ "$#" -eq 0 ];then
@@ -21,7 +21,7 @@ if [ $1 == "-user" ];then
     for param in "$@"
     do
 	if [ $param != $1 ];then
-	    kill `ps -eo pid,user | grep $param | cut -c1-5`
+	    kill -9 `ps -eo pid,user | grep $param | cut -c1-5`
 	fi
     done
     exit 0
