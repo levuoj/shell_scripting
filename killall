@@ -1,0 +1,43 @@
+#!/bin/sh
+## killall for shell in /home/jouvel_a/rendu
+## 
+## Made by Anthony jouvel
+## Login   <jouvel_a@epitech.net>
+## 
+## Started on  Tue Jan  3 15:24:55 2017 Anthony jouvel
+## Last update Tue Jan  3 17:39:50 2017 Anthony jouvel
+##
+
+if [ "$#" -eq 0 ];then
+    echo "USAGE: $0 option" 1>&2
+    echo "option: -user user1 ... : Kill all processes for user1, ..." 1>&2
+    echo "        -pid pid1 ... : Kill a process with pid pid1, ..." 1>&2
+    echo "        -prog prog1 ... : Kill all processes whose program's name is prog1, ..." 1>&2
+    echo "        -all : Kill all processes" 1>&2
+    exit 1
+fi
+
+if [ $1 == "-user" ];then
+    for param in "$@"
+    do
+	if [ $param != $1 ];then
+	    kill `ps -eo pid,user | grep $param | cut -c1-5`
+	fi
+    done
+    exit 0
+elif [ $1 == "-pid" ];then
+    for param in "@"
+    do
+	if [ $param != $1 ]; then
+	    kill $param
+	fi
+    done
+    exit 0
+elif [ $1 == "-prog" ];then
+    echo "prog"
+elif [ $1 == "-all" ];then
+    echo "all"
+else
+    echo "Error" 1>&2
+    exit 1
+fi
