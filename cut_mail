@@ -1,16 +1,7 @@
 #!/bin/sh
-## cut_mail for shell in /home/jouvel_a/rendu/SHL_2016_shell
-## 
-## Made by Anthony jouvel
-## Login   <jouvel_a@epitech.net>
-## 
-## Started on  Mon Jan  2 20:32:22 2017 Anthony jouvel
-## Last update Mon Jan  2 22:53:15 2017 thomas vigier
-##
-
 
 if [ "$#" -ne 2 ];then
-    echo "USAGE: $0 mbox destdir" 1>&2
+    echo "USAGE: ./cut_mail mbox destdir" 1>&2
     exit 1
 fi
 
@@ -56,7 +47,7 @@ do
     next=$(($next-2))
     if [ $q = $y ]
     then
-	next=$(grep -n $ $1 | tail -1 | cut -f1 -d:)
+	next=$(($(grep -n $ $1 | tail -1 | cut -f1 -d:)-1))
     fi
     test=$(sed $now','$next'w '$2'/'$q'.mail' $1)
     idx=$(($idx+1))
